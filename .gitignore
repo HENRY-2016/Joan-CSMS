@@ -1,0 +1,11 @@
+
+
+/bin
+/include
+/share
+/lib64
+/lib
+data.csv
+data.xlsx
+pyvenv.cfg
+.vscode
