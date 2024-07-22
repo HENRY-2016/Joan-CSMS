@@ -1,0 +1,21 @@
+/* .body-app{background-color: rgb(0, 124, 83);} */
+.add-record-btn{float: right; margin-top: -8px; background-color: white;}
+.my-grid-container-2-columns
+{
+    display: grid;
+    grid-template-columns: auto  auto ;
+}
+
+.my-grid-item 
+{
+    padding: 10px;
+    font-size: 10px;
+}
+.form-input-labels
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: black;
+}
+
+.plotted-image{width: 800px; height: 800px;}

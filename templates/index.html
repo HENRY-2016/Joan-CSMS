@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>Index</title>
+
+<!-- Template Main CSS File -->
+<link href="{{ url_for('static', filename='assets/css/style.css')}}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/css/w3.css')}}" rel="stylesheet">
+
+
+</header><!-- End Header -->
+
+
+<body class="body-app">
+<div class="w3-container">
+    <br> <br>
+    <center>
+    <div class="w3-card-4" style="width: 70% !important;">
+        <div class="w3-bar w3-black">
+            <a href="#" class="w3-bar-item w3-button w3-mobile w3-green">Home | Sales</a>
+            <a href="/logout" class="w3-bar-item w3-button w3-red w3-right">-- Log Out --</a>
+            <a href="#" class="w3-bar-item w3-button w3-green w3-right">Admin Admin</a>
+        </div>
+    
+    <br>
+    &nbsp; &nbsp;<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-blue w3-round-xlarge">Add A Sale</button>
+    &nbsp; &nbsp;<a href="/plot"  class="w3-button w3-green w3-round-xlarge">Visualize Data</a>
+    &nbsp; &nbsp;<a href="/download-csv"  class="w3-button w3-blue w3-round-xlarge">Download CSV</a>
+
+
+    <br>
+    <p>Enter More Than 10 Records To Visualize Data </p>
+    <!-- Table with stripped rows -->
+    <table class="w3-table w3-striped w3-bordered " >
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">InvoiceNo</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Item</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">UnitPrice</th>
+        <th scope="col">Total</th>
+        </tr>
+    </thead>
+    <!-- InvoiceNo StockCode Quantity InvoiceDate UnitPrice CustomerID  Description Country Total -->
+    <tbody>
+        {% for row in rows %} 
+        <tr>
+        <td>{{row["id"]}}</td>
+        <td>{{row["InvoiceDate"]}}</td>
+        <td>{{row["InvoiceNo"]}}</td>
+        <td>{{row["CustomerId"]}}</td>
+        <td>{{row["Description"]}}</td>
+        <td>{{row["Quantity"]}}</td>
+        <td>{{row["ActualPrice"]}}</td>
+        <td>{{row["Total"]}}</td>
+        </tr>
+        {% endfor %}  
+    </tbody>
+    </table>
+</div>
+    <!-- End Table with stripped rows -->
+
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom modal-sty" >
+            <div class="w3-container">
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+            <center>
+                <p class="form-input-labels"><b>Enter The Following Details </b></p>
+                <form action="/saveSales" method="post">
+
+                    <div class="my-grid-container-2-columns">
+                        <!-- <div class="my-grid-item">
+                            <label class="form-input-labels">Customer Name *</label>
+                            <select type="text"  name="CustomerId" class="w3-input w3-border w3-round" autocomplete="off" placeholder="Item Name">
+                                <option value="11047"> Customer A</option>
+                                <option value="12047"> Customer B</option>
+                                <option value="13047"> Customer C</option>
+                                <option value="14047"> Customer D</option>
+                                <option value="15047"> Customer E</option>
+
+                                <option value="16047"> Customer F</option>
+                                <option value="17047"> Customer H</option>
+                                <option value="18047"> Customer I</option>
+                                <option value="19047"> Customer J</option>
+                                <option value="10047"> Customer K</option>
+
+                            </select>
+                        </div> -->
+                        <!-- <div class="my-grid-item">
+                            <label class="form-input-labels">Invoice No *</label>
+                            <select type="text"  name="InvoiceNo" class="w3-input w3-border w3-round" autocomplete="off" placeholder="Item Name">
+                                <option value="136365"> InvoiceNo A</option>
+                                <option value="236365"> InvoiceNo B</option>
+                                <option value="336365"> InvoiceNo C</option>
+                                <option value="436365"> InvoiceNo D</option>
+                                <option value="536365"> InvoiceNo E</option>
+
+                                <option value="636365"> InvoiceNo F</option>
+                                <option value="736365"> InvoiceNo H</option>
+                                <option value="836365"> InvoiceNo I</option>
+                                <option value="936365"> InvoiceNo J</option>
+                                <option value="10365"> InvoiceNo K</option>
+                            </select>
+                        </div> -->
+                        <div class="my-grid-item">
+                            <label class="form-input-labels">Item Name *</label>
+                            <input type="text"  name="Description" class="w3-input w3-border w3-round" autocomplete="off" placeholder="Item Name">
+                        </div>
+
+                        <div class="my-grid-item">
+                            <label class="form-input-labels">Quantity *</label><br>
+                            <input type="text" id="Quantity"  name="Quantity" class="w3-input w3-border w3-round" autocomplete="off" placeholder="Quantity">
+                        </div>
+
+                        <div class="my-grid-item">
+                            <label class="form-input-labels">UnitPrice *</label><br>
+                            <input type="number" id="UnitPrice" onblur="calculateTotal()" name="UnitPrice" class="w3-input w3-border w3-round" autocomplete="off" placeholder="UnitPrice">
+                        </div>
+                        
+                        <div class="my-grid-item">
+                            <label class="form-input-labels">Total </label>
+                            <input type="text" id="Total" name="Total" class="w3-input w3-border w3-round" readonly autocomplete="off" placeholder="00000">
+                        </div>
+                        
+                    </div>
+                    <button  type="submit" class="w3-button w3-blue w3-round-xlarge">Save Record Sale</button>
+                    <br><br>
+                </form>  
+            </center>
+        </div>
+        </div>
+    </div>
+</div>
+</center>
+</div>
+
+<script>
+    function calculateTotal ()
+    {
+        var unitPrice = document.getElementById('UnitPrice').value;
+        var quantity = document.getElementById('Quantity').value;
+        var total = document.getElementById('Total')
+
+        console.log(unitPrice + quantity)
+        var totalPrice = parseInt(unitPrice)*parseInt(quantity);
+        total.value= totalPrice;
+        console.log(totalPrice)
+    }
+</script>
+
+
+</body>
+
+</html>

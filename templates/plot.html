@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>Index</title>
+
+<!-- Template Main CSS File -->
+<link href="{{ url_for('static', filename='assets/css/style.css')}}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/css/w3.css')}}" rel="stylesheet">
+
+
+</header><!-- End Header -->
+<body class="body-app">
+    <div class="w3-container">
+        <center>
+        <br> <br>
+        <div class="w3-card-4" style="width: 70% !important;">
+            <div class="w3-bar w3-black">
+                <a href="#" class="w3-bar-item w3-button w3-mobile w3-green">Visualize | Sales</a>
+                <a href="/logout" class="w3-bar-item w3-button w3-red w3-right">-- Log Out --</a>
+                <a href="#" class="w3-bar-item w3-button w3-green w3-right">Admin Admin</a>
+                </div>
+            
+            
+            <br>
+            &nbsp; &nbsp;<a href="/viewSales"  class="w3-button w3-green w3-round-xlarge">Sales</a>
+            &nbsp; &nbsp;<a href="/plot"  class="w3-button w3-green w3-round-xlarge">Visualize Data</a>
+            &nbsp; &nbsp;<a href="/download-csv"  class="w3-button w3-blue w3-round-xlarge">Download CSV</a>
+            <br>
+            <center>
+                <img src="{{ url_for('static', filename='images/plot.png') }}" class="plotted-image"> 
+            </center>
+        </div>
+    </center>
+    </div>
+</body> 
+</html>

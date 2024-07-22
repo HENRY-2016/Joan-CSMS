@@ -32,16 +32,21 @@ WEBSITE:			https://mogahenze.com
         pip install numpy
         pip install matplotlib
         pip install -U scikit-learn
-        pip install PyQt6
         pip install pandas
+        pip install db-sqlite3
+        pip install Flask
+
+        pip install PyQt6
         pip install tk
-        
+
+
+
 ## List  installed packages 
     pip list
 
 ## Git Hub Pushing
 1 => git add .
-2 => git commit -m 'Initial Uploads'
+2 => git commit -m 'New Changes And Updates'
 3 => git branch -M main
 4 => git push -u origin main
 
@@ -56,6 +61,10 @@ Initialize k means with random values
         --> Assign item to mean
         
         --> Update mean by shifting it to the average of the items in that cluster
+
+
+ A special thanks goes out to the https://www.kdnuggets.com/customer-segmentation-in-python-a-practical-approach
+ 
 
 https://www.geeksforgeeks.org/k-means-clustering-introduction/
 https://realpython.com/k-means-clustering-python/
@@ -73,3 +82,7 @@ https://towardsdatascience.com/how-to-perform-kmeans-clustering-using-python-7cc
 tr 
 ===
 https://www.kdnuggets.com/customer-segmentation-in-python-a-practical-approach
+
+
+flask 
+    https://www.javatpoint.com/flask-sqlite

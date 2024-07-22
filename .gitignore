@@ -5,7 +5,7 @@
 /share
 /lib64
 /lib
-data.csv
+sales.csv
 data.xlsx
 pyvenv.cfg
 .vscode

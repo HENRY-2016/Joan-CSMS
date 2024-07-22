@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>Index</title>
+
+<!-- Template Main CSS File -->
+<link href="{{ url_for('static', filename='assets/css/style.css')}}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/css/w3.css')}}" rel="stylesheet">
+
+
+</header><!-- End Header -->
+
+
+<body class="body-app">
+<div class="w3-container">
+    <br><br><br>
+    <center>
+    <div class="w3-card-4" style="width: 500px !important;">
+        <center>
+            <p class="form-input-labels"><b>Welcome Back ! </b></p>
+            <p class="form-input-labels"><b>Log In To Continue ! </b></p>
+            <form action="/login" method="post">
+
+                <div class="my-grid-container-1-columns">
+                    <div class="my-grid-item">
+                        <label class="form-input-labels">User Name *</label>
+                        <input type="text"  name="username" class="w3-input w3-border w3-round" autocomplete="off" placeholder="User Name">
+                    </div>
+
+                    <div class="my-grid-item">
+                        <label class="form-input-labels">Password *</label><br>
+                        <input type="password"  name="password" class="w3-input w3-border w3-round" autocomplete="off" placeholder="********">
+                    </div>
+
+                    
+                </div>
+                <button  type="submit" class="w3-button w3-blue w3-round-xlarge">-- Log In --</button>
+                <br><br>
+            </form>  
+        </center>
+    </div>
+    </center>
+</div>
+
+
+</body>
+
+</html>
